@@ -41,7 +41,7 @@ If KMS screen capture results in a black screen being streamed, you may need to
 set the parameter ``modeset=1`` for Nvidia's kernel module. This can be done by
 adding the following directive to the kernel command line:
 
-.. code-block::
+.. code-block:: text
 
    nvidia_drm.modeset=1
 
@@ -50,7 +50,7 @@ often grub is used to load the kernel and set its command line.)
 
 AMD encoding latency issues
 ---------------------------
-If you notice unexpectedly high encoding latencies (e.g. in Moolight's
+If you notice unexpectedly high encoding latencies (e.g. in Moonlight's
 performance overlay) or strong fluctuations thereof, this is due to
 `missing support <https://gitlab.freedesktop.org/drm/amd/-/issues/3336>`_
 in Mesa/libva for AMD's low latency encoder mode. This is particularly

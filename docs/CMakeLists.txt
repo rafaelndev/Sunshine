@@ -84,11 +84,25 @@ set(RST_PATTERNS
         ${CMAKE_SOURCE_DIR}/README.rst
 )
 
+# check for languages that cannot be "rstchecked" on the current system
+set(RST_IGNORE_LANGUAGES)
+
+find_program(BASH_BIN "bash")
+if("${BASH_BIN}" STREQUAL "BASH_BIN-NOTFOUND")
+    list(APPEND RST_IGNORE_LANGUAGES "bash")
+endif()
+
+list(LENGTH RST_IGNORE_LANGUAGES RST_IGNORE_LANGUAGES_LENGTH)
+if(RST_IGNORE_LANGUAGES_LENGTH GREATER 0)
+    string(REPLACE ";" "," RST_IGNORE_LANGUAGES "${RST_IGNORE_LANGUAGES}")
+    set(RST_IGNORE_LANGUAGES --ignore-languages ${RST_IGNORE_LANGUAGES})
+endif()
+
 # check rst files
 foreach(pattern ${RST_PATTERNS})
     message(STATUS "Checking RST files: ${pattern}")
     execute_process(
-        COMMAND "${Python3_ROOT_DIR}/rstcheck" -r "${pattern}"
+        COMMAND "${Python3_ROOT_DIR}/rstcheck" -r "${pattern}" ${RST_IGNORE_LANGUAGES}
         COMMAND_ERROR_IS_FATAL ANY
         RESULT_VARIABLE RST_RESULT
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
