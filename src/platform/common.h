@@ -42,13 +42,6 @@ namespace boost {
   namespace filesystem {
     class path;
   }
-  namespace process {
-    class child;
-    class group;
-    template <typename Char>
-    class basic_environment;
-    typedef basic_environment<char> environment;
-  }  // namespace process
 }  // namespace boost
 namespace video {
   struct config_t;
