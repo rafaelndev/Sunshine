@@ -702,6 +702,7 @@ namespace video {
         { "rc"s, &config::video.amd.amd_rc_av1 },
         { "usage"s, &config::video.amd.amd_usage_av1 },
         { "enforce_hrd"s, &config::video.amd.amd_enforce_hrd },
+        { "high_motion_quality_boost_enable"s, true },
       },
       {},  // SDR-specific options
       {},  // HDR-specific options
@@ -726,6 +727,7 @@ namespace video {
         { "usage"s, &config::video.amd.amd_usage_hevc },
         { "vbaq"s, &config::video.amd.amd_vbaq },
         { "enforce_hrd"s, &config::video.amd.amd_enforce_hrd },
+        { "high_motion_quality_boost_enable"s, true },
       },
       {},  // SDR-specific options
       {},  // HDR-specific options
@@ -748,6 +750,7 @@ namespace video {
         { "usage"s, &config::video.amd.amd_usage_h264 },
         { "vbaq"s, &config::video.amd.amd_vbaq },
         { "enforce_hrd"s, &config::video.amd.amd_enforce_hrd },
+        { "high_motion_quality_boost_enable"s, true },
       },
       {},  // SDR-specific options
       {},  // HDR-specific options
